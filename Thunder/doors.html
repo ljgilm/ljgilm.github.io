@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title> Thunder </title>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@200&family=Ultra&display=swap" rel="stylesheet">
+        <link rel="icon" href="assets/Light.png">
+        <link href='styles/styles.css' rel="stylesheet">  
+        <style>
+            .doorA {
+                justify-content: center;
+                display: flex;
+            }
+            img {
+                border:0px;
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <audio autoplay loop src="music/Music.m4a"></audio>
+        <h1 class="title"> Hallway </h1>
+
+        <div class= "doorA">
+            <a id="shrine" href="shrine.html">
+                <img src="assets/outside.png" width="200"/>
+            </a> 
+
+            <a id="kitchen" href="kitchen.html">
+                <img src="assets/kitchen.png" width="200"/>
+            </a>
+
+            <a id="spa" href="spa.html">
+                <img src="assets/bath.png" width="200"/>
+            </a>
+
+            <a id="bedroom" href="bedroom.html">
+                <img src="assets/bed.png" width="200"/>
+            </a>
+        </div>
+
+        <hr>
+        <div class="status">
+            <iframe src="inventory.html" id="inventory" height="140" width="375"></iframe>
+        </div>
+
+        <script>
+            shrine.href += location.search;
+            kitchen.href += location.search;
+            spa.href += location.search;
+            bedroom.href += location.search;
+            inventory.src += location.search;
+        </script>
+    
+    </body>
+</html>

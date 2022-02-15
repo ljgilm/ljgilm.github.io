@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title> Thunder </title>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@200&family=Ultra&display=swap" rel="stylesheet">
+        <link rel="icon" href="assets/Light.png">
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+    <body>
+        <audio autoplay loop src="music/Music.m4a"></audio>
+        <h1 class="title"> Kitchen </h1>
+        
+        <div class="aligning">
+            <div>
+                <img src="assets/kitchen.gif" width="700">
+            </div>
+            <div class="aligningRow">
+                <a id="doors" href="doors.html">
+                    <button class="button description-font-b"> Go Back To The Hallway </button>
+                </a>
+                <a id="cupboard" href="cupboard.html">
+                    <button class="button description-font-b"> Cupboard </button>
+                </a>
+                <a id="pantry" href="pantry.html">
+                    <button class="button description-font-b"> Pantry </button>
+                </a>
+                <a id="jar" href="jar.html">
+                    <button class="button description-font-b"> Treat Jar </button>
+                </a>
+            </div>
+        </div>
+
+        <hr>
+        <div class="status">
+            <iframe src="inventory.html" id="inventory" height="140" width="375"></iframe>
+        </div>
+        
+        <script>
+            doors.href += location.search;
+            cupboard.href += location.search;
+            pantry.href += location.search;
+            jar.href += location.search;
+            inventory.src += location.search;
+        </script>
+    
+    </body>
+</html>

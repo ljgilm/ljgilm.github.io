@@ -1,0 +1,60 @@
+<html>
+    <head> </head>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@200&family=Ultra&display=swap" rel="stylesheet">
+    <link href='styles/styles.css' rel="stylesheet">
+    <style>
+        .cate {
+            text-align: center;
+            color:rgb(255, 255, 255);;
+            font-family: 'Poppins';
+            font-weight: normal; 
+            font-size: 12px;
+        }
+
+        tr, th {
+            align-self: center;
+            text-align: center;
+        }
+
+        table {
+            margin: 0 auto;
+            table-layout: fixed;
+            width: 80%;
+        }
+
+    </style>
+
+    <body style = "background-color:rgb(36, 85, 85)">
+        <div class="title-inv"> Inventory </div> <hr>
+        <div>
+            <table>
+                <tr class="cate">
+                    <th> Bucks </th>
+                    <th> Bravery </th>
+                    <th> Boomerangs </th>
+                    <th> Bones </th>
+                </tr>
+                <tr>
+                    <td>&#128181</td>
+                    <td>&#128170</td>
+                    <td>&#129667</td>
+                    <td>&#129460</td>
+                </tr>
+                <tr class="cate">
+                    <td id="buck">0</td>
+                    <td id="bravery">0</td>
+                    <td id="boomerang">0</td>
+                    <td id="bone">0</td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var queryString = new URLSearchParams(location.search);
+            buck.innerText = queryString.get("buck");
+            bravery.innerText = queryString.get("bravery");
+            boomerang.innerText = queryString.get("boomerang");
+            bone.innerText = queryString.get("bone");
+        </script>
+
+    </body>
+</html>

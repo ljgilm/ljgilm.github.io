@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title> Thunder </title>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@200&family=Ultra&display=swap" rel="stylesheet">
+        <link rel="icon" href="assets/Light.png">
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+
+    <body>
+        <audio id = "music" autoplay loop src="music/Music.m4a"></audio>
+        <h1 class="title"> Cupboard </h1>
+    
+        <div class="aligning"> 
+            <div>
+                <img id="cup" src="assets/cupboard.jpg"  width="400" height="400"/>
+            </div> 
+
+            <div style="margin-right: 30px;">  
+                <a style="text-decoration: none;" id="kitchen" href="kitchen.html">
+                    <button class="description-font-b button"> Return to Kitchen </button>
+                </a>
+
+                <span id = "openCup">
+                    <button class="button description-font-b" onclick = "cat()"> 
+                        Open Cupboard
+                    </button> 
+                </span>          
+            </div>  
+
+            <p style="text-align: center;" class="description-font" id="catText"></p>  
+            <div id="end"></div>
+
+        </div>
+        <hr>
+
+        <div class="status">
+            <iframe src="inventory.html" id="inventory" height="140" width="375"></iframe>
+        </div>
+
+        <script>
+            kitchen.href += location.search;
+            inventory.src += location.search;
+
+            function cat() {
+                cup.src ="assets/cupboard-cat.jpg";
+                openCup.innerHTML = 
+                `
+                <button class="button description-font-b" onclick= "attack()"> Fight! </button>
+                `
+                catText.innerHTML="Ahhh! A cat attack!";
+
+            }
+
+            var queryString = new URLSearchParams(location.search);
+            var buck  = +queryString.get("buck");
+            var bravery = +queryString.get("bravery");
+            var boomerang = +queryString.get("boomerang");
+            var bone = +queryString.get("bone");
+            //var catHP = Math.floor(Math.random(1,6));
+            //var catAP = Math.floor(Math.random(1,3));
+            var catHP = 8;
+            var catAP = 2;
+
+            function attack(){
+                catHP -= boomerang;
+                if (catHP <= 0) {
+                    cup.src = "assets/money.png";
+                    queryString.set("buck", buck+5);
+                    //var newBrave = Math.floor(Math.random(bravery, bravery+4));
+                    queryString.set("bravery", bravery +  3);
+                    inventory.src= "inventory.html?"+queryString;
+                    catText.innerHTML = "You defeated the cat and won some bucks!";
+                    end.innerHTML = `<a href="kitchen.html?${queryString}"><button class="button description-font-b"> Go Back </button></a>`
+                    kitchen.innerHTML="";
+                    openCup.innerHTML ="";
+                } else {
+                    bravery -= catAP;
+                    queryString.set("bravery", bravery);
+                    boomerang = boomerang - 1;
+                    queryString.set("boomerang", boomerang);
+                    kitchen.href = "kitchen.html?"+queryString;
+                    inventory.src="inventory.html?"+queryString;
+                    catText.innerHTML = "Oh no! You got scratched and decreased both your bravery and boomerangs!";
+                }
+
+                if (bravery <= 0) {
+                    catText.innerHTML = "You lost and are no longer brave enough to face Thor.<br>The only thing you can do now is hide underneath your blanket.";
+                    kitchen.innerHTML="";
+                    openCup.innerHTML ="";
+                    cup.src="assets/end.jpg";
+                    end.innerHTML = `<a href="index.html"><button style= "margin-bottom: 30px;" class="button description-font-b">Game Over</button></a>`;
+                }
+            }
+
+        </script>
+
+    </body>
+</html>

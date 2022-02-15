@@ -1,0 +1,238 @@
+<html>
+    <head>
+        <title> Thunder </title>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@200&family=Ultra&display=swap" rel="stylesheet">
+        <link rel="icon" href="assets/Light.png">
+        <link href='styles/styles.css' rel="stylesheet">
+
+        <style>
+            .submit {
+                background-color: transparent;
+                border-color: rgb(255, 255, 255);
+                color: rgb(255, 255, 255);
+                padding: 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 10px;
+                border-radius: 12px;
+            }
+
+            .submit:hover {
+                background-color: rgb(9, 22, 22);;
+                color: white;
+            }
+
+            .button-align {
+                display: flex; 
+                flex-direction: column; 
+                justify-content: center;
+                align-items: center; 
+            }
+
+        </style>
+    </head>
+    <body>
+        <audio autoplay loop id= "music" src="music/Music.m4a"></audio>
+        <h1 class="title">Thor </h1>
+
+        <div class="aligning">
+            <img id= "thor" src="assets/thor.gif" width="400" height="400">
+
+            <div id="result" class="button-align">
+
+                <div id="resultLink">
+                    <a id="doors" href="doors.html">
+                        <button class="button description-font-b"> Go Back Inside </button>
+                    </a>
+                </div>
+
+                <div id="askForQ" style="margin-top: 10px;">
+                    <button class="button description-font-b" onclick="askNow()"> Answer Riddles </button>
+                </div>
+
+                <p style="text-align: center;" class="description-font" id="textResult">
+                    I am Thor! If you can answer my riddles, I shall calm the storm!<br> Are you brave enough to answer them? Or will you coward inside?
+                </p>
+
+            </div>
+
+            <div class="description-font" id="riddle"></div>
+        </div>
+
+        <hr>
+        <div class="status">    
+            <iframe src="inventory.html" id="inventory" height="140" width="375"></iframe>
+        </div>
+        <script>
+            doors.href += location.search;
+            inventory.src += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var bravery = +queryString.get("bravery");
+
+            var correct = 0;
+            var wrong = 0;
+
+            const riddles = 
+            [
+                "My thunder comes before the lightning. My lightning comes before the clouds. My rain dries all the land it touches. What am I?",
+                "You're in a dark room with a candle, a wood stove, and a gas lamp. You only have one match, so what do you light first?",
+                "You measure my life in hours, and I serve you by expiring. I'm quick when I'm thin and slow when I'm fat. The wind is my enemy.",
+                "I have keys but no locks. I have space but no room. You can enter, but you can't go outside. What am I?",
+                "What can go through glass without breaking it?",
+                "What ancient invention allows people to see through walls?",
+                "What is full of holes but still holds a lot of water?",
+                "What word looks the same upside down and backward?",
+                "What spends all the time on the floor but never gets dirty?",
+                "Give me food, and I will live. Give me water, and I will die.",
+                "It is an insect, and the first part of its name is the name of another insect. What is it?",
+                "When you need me, you throw me away. When you don’t need me, you bring me back. What am I?",
+                "Say my name, and I am no more. What am I?",
+                "I can heal and kill without touching you. What am I?",
+                "What can bring tears to your eyes, make you move faster, make you move slower and knock you over?",
+                "When does 11 + 3 = 2?",
+                "What loses its head in the morning and gets it back at night?",
+                "What can be given and can be accepted, is worth a great deal but costs nothing yet has no monetary value?",
+                "What can run but never walk?",
+                "What word is pronounced the same when you take away four of its five letters?",                
+                "What is something that you have but you can’t touch, you can change whenever you want and you use everyday but have never seen me. What am I?",
+                "What can you catch, but not throw?",
+                "What gets wet while drying?",
+                "What goes up but never comes down?",
+                "What is always in front of you but can’t be seen?"
+
+            ]
+
+            const answers =
+            [
+                "volcano",
+                "match",
+                "candle",
+                "keyboard",
+                "light",
+                "window",
+                "sponge",
+                "swims",
+                "shadow",
+                "fire",
+                "beetle",
+                "anchor",
+                "silence",
+                "time",
+                "wind",
+                "clock",
+                "pillow",
+                "apology",
+                "water",
+                "queue",
+                "mind",
+                "cold",
+                "towel",
+                "age",
+                "future"
+            ]
+
+
+            var question;
+            var correctAnswer;
+
+            function askNow() {
+                var index = Math.floor(Math.random() * 24); // 0-24
+                question = riddles[index];
+                correctAnswer = answers[index];
+            
+                if (wrong <= 2) {
+                    if (correct >= 5) {
+                        textResult.innerHTML = "You have passed! Thor will end the storm as he promised!"
+                        music.src="music/sun.m4a";
+                        thor.src= "assets/win.jpg";
+                        askForQ.innerHTML = "";
+                        resultLink.innerHTML= 
+                        `
+                        <a id="index" href="index.html">
+                            <button class="button description-font-b"> Play Again </button>
+                        </a>
+                        `
+                        riddle.innerHTML = "";
+                    } else {
+                        riddleMeThis();
+                        askForQ.innerHTML = "";
+                    }
+                } else {
+                    if (bravery > 0) {
+                        textResult.innerHTML = "You answered too many inccorect. You will have to try again. <br> However, you will need to offer him bones again.";
+                        askForQ.innerHTML = "";
+                        riddle.innerHTML = "";
+                    }
+                }
+            }             
+
+            function riddleMeThis() {
+                console.log("inside of Riddle");
+                textResult.innerHTML = ""
+                askForQ.innerHTML = "";
+               // resultLink.innerHTML= "";
+
+                riddle.innerHTML = 
+                `
+                <div style="text-align: center; margin-bottom: 10px;" class="description-font"> ${question} </div>
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <label> Answer the riddle </label>
+                    <input type="text" id="inputText">
+                    <input type="button" value="Submit" onclick="checkAnswer()">
+                </div>
+                `
+                console.log(question);
+                console.log(correctAnswer);
+            }
+
+            function checkAnswer(){
+                console.log("Check Answer");
+                if(inputText.value.includes(correctAnswer)){
+                    console.log("You're right");
+                    correct += 1;
+                    bravery = bravery + 1;
+                    queryString.set("bravery", bravery);
+                    textResult.innerHTML = "You answered it correctly! Do you want another riddle?"
+                    riddle.innerHTML ="";
+                    inventory.src = "inventory.html?" + queryString;
+                    doors.href = "doors.html?" + queryString;
+                    //location.search = queryString;
+                    askForQ.innerHTML = `<button class="button description-font-b" onclick="askNow()"> Answer Riddles </button>`
+                    
+                } else {
+                    console.log("You're wrong!");
+                    wrong += 1;
+                    bravery = bravery - 1;
+                    queryString.set("bravery", bravery);
+                    if (bravery > 0) {
+                        textResult.innerHTML = "You answered it wrong and are worried that you might not get all the riddles. <br> Do you still want to answer another riddle?"
+                        riddle.innerHTML = "";
+                        inventory.src = "inventory.html?" + queryString;
+                        doors.href = "doors.html?" + queryString;
+                        askForQ.innerHTML = `<button class="button description-font-b" onclick="askNow()"> Answer Riddles </button>`
+                        //location.search = queryString;
+                    } 
+
+                    if (bravery <= 0) {
+                        textResult.innerHTML = "Your bravery has plummeted. <br>The only thing you can do now is hide underneath your blanket until the storm passes.";
+                        thor.src= "assets/end.jpg";
+                        askForQ.innerHTML = "";
+                        resultLink.innerHTML= 
+                        `
+                        <a id="index" href="index.html">
+                            <button class="button description-font-b"> Game Over </button>
+                        </a>
+                        `
+                        riddle.innerHTML = "";
+                        inventory.src = "inventory.html?" + queryString;
+                        doors.href = "doors.html?" + queryString;
+                    }
+                }
+                
+                console.log("string = " + queryString);
+            }
+        </script>
+    </body>
+</html>

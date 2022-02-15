@@ -1,0 +1,108 @@
+body {
+    background-color:rgb(20, 48, 48);
+}
+
+.title-inv {
+    text-align: center;
+    color:rgb(255, 255, 255);;
+    font-family: 'Abril Fatface';
+    font-weight: normal; 
+    font-size: 16px;
+}
+
+.title {
+    text-align: center;
+    color:rgb(255, 255, 255);
+    margin-top: 30px;
+    font-family: 'Abril Fatface';
+    font-weight: normal; 
+    font-size: xxx-large;
+}
+
+.description-font {
+    font-family: 'Poppins';
+    color: white;
+}
+
+.description-font-b {
+    font-family: 'Poppins';
+    font-weight: bold;
+    color:white;
+}
+
+img {
+    display: block;
+    margin-bottom: 30px;
+    border: 10px solid rgb(255, 255, 255);
+}
+.background {
+    background-image: url('assets/black.jpg');
+}
+
+.button {
+    background-color: transparent;
+    border-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+}
+
+.button:hover {
+    background-color: rgb(9, 22, 22);;
+    color: white;
+}
+
+a {
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+
+iframe {
+border: 3px rgb(255, 255, 255) solid;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align:center;
+    
+}
+
+.aligningRow {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; 
+    margin-bottom: 15px;  
+}
+
+.aligning {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;   
+}
+
+.aligningCol {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; 
+    margin-bottom: 15px;  
+}

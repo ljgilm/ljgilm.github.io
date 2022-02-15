@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title> Thunder </title>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@200&family=Ultra&display=swap" rel="stylesheet">
+        <link rel="icon" href="assets/Light.png">
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+
+    <body>
+        <audio autoplay loop src="music/Music.m4a"></audio>
+        <h1 class="title">Jar </h1>
+
+        <div class="aligning">
+            <img src="assets/jar-caught.gif" width="400" height="400" />
+            <div style= "margin-top: 10px; margin-bottom: 30px;" class="description-font">
+                Got caught with your paw in the cookie jar!
+            </div>
+
+            <div>
+                <a id="handInJar" href="index.html"> 
+                    <button style= "margin-bottom: 30px;" class="button description-font-b"> Game Over </button> 
+                </a>
+            </div>
+        </div>
+        
+        <hr>
+
+        <div class="status"> 
+            <iframe src="inventory.html" id="inventory" height="140" width="375"></iframe>
+        </div>
+
+    </body>
+    <script>
+        inventory.src += location.search;
+    </script>
+</html>

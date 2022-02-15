@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title> Thunder </title>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@200&family=Ultra&display=swap" rel="stylesheet">
+        <link rel="icon" href="assets/Light.png">
+        <link href='styles/styles.css' rel="stylesheet">
+    </head>
+
+    <body>
+        <audio autoplay loop src="music/Music.m4a"></audio>
+        <h1 class="title"> Bedroom </h1>
+
+        <div class="aligning" style="margin-top: 30px; margin-bottom: 30px;">
+            <div>
+                <img id="bed" src="assets/bed.gif" width="700">
+            </div>
+            <div style="margin-top: 10px; text-align: center;" class="description-font">
+                Interested in increasing your bravery? Try renting a horror movie for $5 to increase your bravery! <br>
+                Need more boomerangs to fight against foes? Buy a boomerang for $3.
+            </div>
+            <div style= "margin-top: 30px;">
+                <button class="button description-font-b" onclick="buyBravery()"> Watch a Horror Movie </button>
+                <button class="button description-font-b" onclick="buyBoomerang()">Buy a Boomerang </button>
+            </div>
+            <div>
+                <a id="doors" href="doors.html">
+                    <button class="button description-font-b"> Leave Bedroom </button>
+                </a>
+            </div>
+        </div>
+        <hr>
+        <div class="status">
+            <iframe src="inventory.html" id="inventory" height="140" width="375"></iframe>
+        </div>
+
+        <script>
+
+            inventory.src += location.search;
+            doors.href += location.search;
+            /*
+                inventory.src = "inventory.html?" + queryString;
+                doors.href = "door.html?" + queryString;
+            */
+            var queryString = new URLSearchParams(location.search);
+            var boomerangs = +queryString.get("boomerang");
+            var bucks = +queryString.get("buck");
+            var bravery = +queryString.get("bravery");
+
+            function buyBravery() {
+                console.log("bucks: " + bucks);
+                if (bucks >= 5) {
+                    //bed.src="assets/bed-movie.jpg";
+                    queryString.set("buck", bucks - 5);
+                    queryString.set("bravery", bravery + 1);
+                    //inventory.src = "inventory.html?" + queryString;
+                    //doors.href = "doors.html?" + queryString;
+                    location.search = queryString;
+                } 
+            }
+
+            function buyBoomerang() {
+                if (bucks >= 3) {
+                    //bed.src="assets/boomerang.jpg";
+                    queryString.set("buck", bucks - 3);
+                    queryString.set("boomerang", boomerangs + 1);
+                    //inventory.src = "inventory.html?" + queryString;
+                    //doors.href = "doors.html?" + queryString;
+                    location.search = queryString;
+                }
+            }
+            //location.search = queryString;
+        </script>
+    </body>
+</html>

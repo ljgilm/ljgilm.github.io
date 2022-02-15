@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title> Thunder </title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@200&family=Ultra&display=swap" rel="stylesheet">
+        <link rel="icon" href="assets/Light.png">
+        <link href='styles/styles.css' rel="stylesheet">
+        
+    </head>
+
+    <body>
+        <audio autoplay loop src="music/Music.m4a"></audio>
+        <h1  class="title"> Shrine </h1>
+
+    <div class="aligning">   
+        <img id="shrine" src="assets/shrine.gif" width="400" height="400">
+
+        <a id="doors" href="doors.html">
+            <button class="button description-font-b"> Go Back Inside </button>
+        </a>
+
+        <a id="thor" href="#" onclick="offerBones()">
+            <div id="ThorOption">
+                <button class="button description-font-b"> Offerings </button>
+            </div>
+        </a>
+
+        <p class="description-font" id="textbox"></p>
+    </div>  
+
+        <hr>
+    <div class="status">
+        <iframe src="inventory.html" id="inventory" height="140" width="375"></iframe>
+    </div>
+        <script>
+            doors.href += location.search;
+            inventory.src += location.search;
+
+            var queryString = new URLSearchParams(location.search);
+            var bones = +queryString.get("bone");
+
+            function offerBones() {
+                if (shrine.src.includes("shrine-bones")){
+                    thor.href = "thor.html?"+queryString;
+                } else if (bones >= 5) {
+                    shrine.src="assets/shrine-bones.jpg"
+                    textbox.innerHTML = "You may now see him."
+                    bones -= 5;
+                    queryString.set("bone", bones);
+
+                    doors.href = "doors.html?"+queryString;
+                    inventory.src = "inventory.html?" + queryString;
+
+                    ThorOption.innerHTML = 
+                        `
+                        <button class="button description-font-b"> Confront Him </button>
+                        `
+                } else {
+                    textbox.innerHTML = "You do not have enough bones to offer him."
+                }
+            }
+
+        </script>
+    </body>
+</html>

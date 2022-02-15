@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title> Thunder </title>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@200&family=Ultra&display=swap" rel="stylesheet">
+        <link rel="icon" href="assets/Light.png">
+        <link href='styles/styles.css' rel="stylesheet">
+         
+    </head>
+
+    <body>
+        <audio id= "music" autoplay loop src="music/Bath.m4a"></audio>
+        <h1 class="title"> Spa </h1>
+
+        <div class="aligning" style="margin-top: 30px; margin-bottom: 30px;">
+            <div>
+                <img src="assets/spa.gif"  width="400" height="400">
+            </div>
+
+            <div style="margin-top: 10px;" class="description-font">
+                Bonjour! I'm out of nail polish and need some cash. I'll sell my bones for $2 each. Interested?
+            </div>
+
+            <div style= "margin-top: 30px;">
+                <button class="button description-font-b" onclick="buyBones()"> Buy Some Bones </button>
+
+                <a id="doors" href="doors.html">
+                    <button class="button description-font-b"> Leave Bathroom </button>
+                </a>
+            </div>
+
+        </div>
+
+        <hr>
+        <div class="status">
+            <iframe src="inventory.html" id="inventory" height="140" width="375"></iframe>
+        </div>
+
+        <script>
+            inventory.src += location.search;
+            doors.href += location.search;
+            var queryString = new URLSearchParams(location.search);
+            var bones = +queryString.get("bone");
+            var bucks = +queryString.get("buck");
+
+            function buyBones() {
+                if (bucks >= 2) {
+                    queryString.set("buck", bucks - 2);
+                    queryString.set("bone", bones + 1);
+                    location.search = queryString;
+                }
+            }
+
+        </script>
+
+        <div class="description-font" style="font-size: 10px;"> 
+            👉Music: swipesy cakewalk by E's jammy jams <br>
+            👉Music promoted by Chillpeach : https://youtu.be/o9_Gu3TI4IY
+        </div>
+        
+    </body>
+</html>

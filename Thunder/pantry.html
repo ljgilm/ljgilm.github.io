@@ -1,0 +1,181 @@
+<html>
+    <head>
+        <title> Thunder </title>
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Poppins:wght@200&family=Ultra&display=swap" rel="stylesheet">
+        <link rel="icon" href="assets/Light.png">
+        <link href='styles/styles.css' rel="stylesheet">
+
+    </head>
+    <body>
+        <audio autoplay loop src="music/Music.m4a"></audio>
+        <h1 class="title">Pantry </h1>
+ 
+<div class="aligning">
+        
+    <div>
+        <div style="margin-left: 50px; margin-right: 50px;">
+            <img id="pantry" src="assets/pantry.jpg" width="400" height="500"/>
+        </div>
+        
+        <div class = "aligningCol" id="shelves">
+            <div>
+                <button class="button description-font-b" id="A1" onclick="look()"> Chips </button>
+                <button class="button description-font-b"id="A2" onclick="look()"> Mac & Cheese </button>
+                <button class="button description-font-b" id="A3" onclick="look()"> Tomato Soup </button>
+            </div>
+            <div>
+                <button class="button description-font-b" id="B1" onclick="look()"> Tomato Soup </button>
+                <button class="button description-font-b" id="B2" onclick="look()"> Chips </button>
+                <button class="button description-font-b" id="B3" onclick="look()"> Mac & Cheese </button>
+            </div>
+            <div>
+                <button class="button description-font-b" id="C1" onclick="look()">  Chips </button>
+                <button class="button description-font-b" id="C2" onclick="look()"> Mac & Cheese </button>
+                <button class="button description-font-b" id="C3" onclick="look()"> Tomato Soup </button>
+            </div>
+        </div>
+    </div>
+
+        <div class="description-font" id="resetPant"></div>
+        <div class="description-font" id="results"></div>
+
+        <div id="gameover">
+            <a id="leave" href="kitchen.html">
+                <button  style="margin-bottom: 30px; margin-top: 20px;" class="button description-font-b"> Leave </button>
+            </a>
+        </div>
+</div>
+        <hr>
+
+        <div class="status">
+        <iframe src="inventory.html" id="inventory" height="140" width="375"></iframe>
+        </div>
+        <script>
+            inventory.src += location.search;
+            leave.href += location.search;
+            var queryString = new URLSearchParams(location.search);
+            var bones = +queryString.get("bone");
+            var bravery = +queryString.get("bravery");
+
+            var numAttempts = 0;
+
+            function look() {
+                //console.log("LOOOOOOOOOOOOOOOOKING")
+                numAttempts += 1;
+                console.log(numAttempts);
+                var isBone = Math.floor(Math.random() * 2); //0 to 1
+                var bonePresent = false;
+                var isCaught = Math.floor(Math.random() * 10); // 0 to 9
+                var dogCaught = false;
+
+                if (isBone == 0) { bonePresent = false;} 
+                else { bonePresent = true;}
+
+                // 50% chance you won't get caught <=4
+                if (isCaught <= 4) { dogCaught = false;} 
+                else { dogCaught = true; }
+
+                resetPant.innerHTML="";
+
+                if (dogCaught == false) {
+
+                    if (numAttempts <= 3 ) {
+                        if (bonePresent) {
+                            pantry.src = "assets/pantry-paw-bone.jpg";
+                            queryString.set("bone", ++bones);
+                            queryString.set("bravery", ++bravery);
+                            inventory.src = "inventory.html?" + queryString;
+                            leave.href = "kitchen.html?" + queryString;
+                            resetPant.innerHTML=
+                            `
+                            <div style="margin-bottom: 30px; margin-top: 30px" class="description-font"> Brave! You found a bone! </div>
+                            <div><button style="margin-left: 35px; margin-bottom: 30px; margin-top: 30px" class="button description-font-b" onclick="resetScene()"> Look Again </button>
+                            </div>
+                            `
+                            shelves.innerHTML="";
+                        } else {
+                            pantry.src = "assets/pantry.jpg";
+                            inventory.src = "inventory.html?" + queryString;
+                            leave.href = "kitchen.html?" + queryString;
+                            resetPant.innerHTML = 
+                            `
+                            <div style="margin-bottom: 30px; margin-top: 30px" class="description-font"> No bones behind there <div>
+                            `
+                        }
+                        
+                    } else {
+                        shelves.innerHTML="";
+                        resetPant.innerHTML="";
+                        inventory.src = "inventory.html?" + queryString;
+                        leave.href = "kitchen.html?" + queryString;
+                        results.innerHTML=
+                        `
+                        <div style="margin-bottom: 30px; margin-top: 30px"> Oh no! I hear foot steps run! </div>
+                        `
+                    }
+                } else {
+                    shelves.innerHTML="";
+                    resetPant.innerHTML="";
+                    bravery -= 1;
+                    queryString.set("bravery", bravery);
+                    inventory.src = "inventory.html?" + queryString;
+                    leave.href = "doors.html?" + queryString;
+                    if (bravery <= 0) {
+                        gameover.innerHTML="";
+                        pantry.width = "400";
+                        pantry.height = "400";
+                        pantry.src="assets/end.jpg"
+                        results.innerHTML=
+                        `
+                        <div style="display: flex; flex-direction: column;">
+                            <div style="text-align: center; margin-bottom: 30px; margin-top: 30px" class="description-font">
+                                Oh no! You ran out of bravery and won't even have the courage to face Thor. <br> Now the only thing you can do is hide underneath your blanket until the storm is over.
+                            </div>
+
+                            <div style= "align-self: center; margin-bottom:30px; ">
+                            <a href="index.html"><button class = "button description-font-b">Game Over</button></a>
+                            </div>
+                        </div>
+                        `
+                    } else {
+                        results.innerHTML=
+                        `
+                        <div style="text-align:center; margin-bottom: 30px; margin-top: 30px" class="description-font"> 
+                        That was scary! You got caught in the pantry with a bone. <br>Thankfully, your owners don't know you were trying to get bones, but you need to leave the kitchen.
+                        </div>
+
+                        `
+                    }
+                }
+            }
+
+            function resetScene() {
+                resetPant.innerHTML="";
+                pantry.src = "assets/pantry.jpg";
+                inventory.src = "inventory.html?" + queryString;
+                leave.href = "kitchen.html?" + queryString;
+                resetPant.innerHTML="";
+                shelves.innerHTML= 
+                `
+                <div>
+                    <button class="button description-font-b" id="A1" onclick="look()"> Chips </button>
+                    <button class="button description-font-b"id="A2" onclick="look()"> Mac & Cheese </button>
+                    <button class="button description-font-b" id="A3" onclick="look()"> Tomato Soup </button>  
+                </div>
+                <div>
+                    <button class="button description-font-b" id="B1" onclick="look()"> Tomato Soup </button>
+                    <button class="button description-font-b" id="B2" onclick="look()"> Chips </button>
+                    <button class="button description-font-b" id="B3" onclick="look()"> Mac & Cheese </button>
+                </div>
+                <div>
+                    <button class="button description-font-b" id="C1" onclick="look()">  Chips </button>
+                    <button class="button description-font-b" id="C2" onclick="look()"> Mac & Cheese </button>
+                    <button class="button description-font-b" id="C3" onclick="look()"> Tomato Soup </button>
+                </div>
+
+                `
+            }
+
+        </script>
+    </body>
+</html>
