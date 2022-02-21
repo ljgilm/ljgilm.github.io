@@ -1,4 +1,4 @@
 # ljgilm.github.io
-Currently working on portfolio.
 
+Portfolio (work in progress): https://ljgilm.github.io./Portfolio/index.html
 Web Dev Game: https://ljgilm.github.io./Thunder/index.html
