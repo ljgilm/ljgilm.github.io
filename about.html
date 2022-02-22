@@ -3,6 +3,8 @@
         <link rel="icon" href="assets/favicon.png">
         <title>Lisa G.M.</title>
 
+        <link href='styles/styles.css' rel="stylesheet">
+
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,44 +12,19 @@
         <!-- Bootstrap CSS background-color: rgb(14, 21, 40); -->
         <link rel="stylesheet" href="styles/bootstrap.min.css">
         <link rel="stylesheet" href="styles/bootstrap-icons.css">
-
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@100;400family=Roboto:wght@900&" rel="stylesheet">
         <style>
-            .bg {
-                background: linear-gradient(180deg, rgb(14, 21, 40) 79%, rgb(68, 50, 48) 10%);
+            .icon {
+                width: 10%;
+                height: 10%;
+                margin-bottom: 5%;
+                margin-top: 5%;
             }
-
-            .navbarBG {
-                background-color: rgb(14, 21, 40);
-            }
-
-            .notepadBG {
-                background-color: rgb(14, 21, 40);
-            }
-
-            .title-font {
-                font-family: Bebas;
-            }
-
-            .text-font {
-                font-family: Montserrat;
-            }
-
-            .button {
-                font-family: Montserrat;
-            }
-
-            .outline {
-                outline:rgb(255, 255, 255); 
-                outline-color: white; 
-                outline-width: 5px;
-                outline-style: double;
-            }
-
         </style>
     </head>
 
     <body class="notepadBG">
-        <div class="container-fluid">
+        <div class="container">
             <nav class="navbar navbar-dark navbarBG container-fluid">
                 <a class="navbar-brand" href="index.html">
                     <i class="bi bi-house"></i>
@@ -93,25 +70,80 @@
                 </div>
             </nav>
 
-            <div id="header" class="text-center">
-                <h1 class="display-1 fw-bold text-white m-3 title-font"> About  </h1>
+            <div id="header" class="text-center container-fluid mt-4 mb-5">
+                <h1 class="display-1 fw-bold text-white mb-3 title-font"> About  </h1>
             </div>
 
-            <!--
-            <div class="row m-4" >
-                <div class="row-cols-2 col-md-6 colm-xl-2 d-flex justify-content-center p-3">
-                    <img src="assets/Headshot.png" class="align-self-center rounded-circle img-thumbnail " style="width: 150px; height: 150px;">
+            <div class="row mb-5">
+                <div class = "row-col-sm-12 col-md-2 text-font d-flex justify-content-center mt-4" style="color: white;">
+                    <div class = "justify-content-center" style="flex-direction: column; text-align: center;">
+                        <h3 class="text-font" style="font-weight: bold;"> Lisa Gilmore-Montero </h3> 
+                        <img src="assets/Headshot.png" class="justify-content-center align-self-center rounded-circle img-thumbnail m-3 " style="width: 150px; height: 150px;">
+                        <div style="flex-direction: row;" class="mb-3">
+                            <a href="www.linkedin.com/in/lisa-gilmore-montero" class="text-white m-2" style="text-decoration: none;"> <i class="bi bi-linkedin"></i> </a>
+                            <a href="https://github.com/ljgilm" class="text-white m-2" style="text-decoration: none;"> <i class="bi bi-github"></i> </a>
+                        </div>
+                        <hr>
+                        <h5 class="text-font"> Education </h5> 
+                        <div class="m-1" style="font-style: italic;">
+                            <div style="font-size: small;"> Computer Science, B.S. University of New Orleans </div>
+                            <div style="font-size: small;"> Expected Graduation: Fall 2022 </div>
+                        </div>
+                        <div class="text-font" style="font-size: smaller;">
+                            <hr>
+                            Hello! My name is Lisa. I am currently a Computer Science student at the University of New Orleans. 
+                            I am also minoring in studio art with a focus on digital art. 
+                            My hope is to combine my two interests together, computer science and digital art, throughout my career.
+                            <hr>
+                        </div>
+                    </div>
                 </div>
-                <div class="row-cols-2 col-md-6 colm-xl-10 d-flex justify-content-center p-3">
-                    <p class="text-white align-self-center" style="text-align: center; width:100%"> Hello! My name is Lisa. I am currently a Computer Science student at the University of New Orleans. I am also minoring in studio art with a focus on digital art. My hope is to combine my two interests together, computer science and digital art, throughout my career. </p>
+
+                <div class="row-col-sm-12 col-md-10 mx-6">
+                        <div class="" style="align-self: center; justify-content: space-between; flex-direction: column; align-content: center; align-items: center; align-self: center;">
+                            <div class="m-3 p-4 justify-content-center" style="background-color: #808c94; border-radius: 0%;  align-self: center; color: white;" >
+                                <h3> Code -  Currently Learning </h3>
+                                <hr>
+                                <div class="d-flex row row-cols-5">
+                                    <img class="icon" src="assets/icon-js.png">
+                                    <img class="icon"  src="assets/icon-html5.png">
+                                    <img class="icon"  src="assets/icon-css3.png">
+                                    <img class="icon"  src="assets/boot.png">
+                                    <img class="icon"  src="assets/unity.png">
+                                    <img class="icon"  src="assets/csh.svg">
+                                </div>
+                            </div>
+
+                            <div class="m-3 p-4 justify-content-center" style="background-color: #808c94; border-radius: 0%;  align-self: center; color: white;" >
+                                <h3> Coding Skills </h3>
+                                <hr>
+                                <div class="d-flex row row-cols-5">
+                                    <img class="icon"  src="assets/icon-java.png">
+                                    <img class="icon"  src="assets/icon-react.png">
+                                    <img class="icon"  src="assets/sql.png">
+                                </div>
+                            </div>
+
+                            <div class="m-3 p-4" style="background-color: #808c94; border-radius: 0%; color: white;">
+                                <h3> Art Skills </h3>
+                                <hr>
+                                <div class="d-flex row row-cols-5">
+                                    <img class="icon" src="assets/photoshop.png">
+                                    <img class="icon"  src="assets/illustrator.png">
+                                    <img class="icon"  src="assets/animate.png">
+                                    <img class="icon"  src="assets/premiere.png">
+                                    <img class="icon"  src="assets/ae.png">
+                                    <img class="icon"  src="assets/procreate.png">
+                                </div>
+                            </div>
+                        </div>
+
                 </div>
+                
             </div>
-            -->
             
         </div>       
         <script src="scripts/bootstrap.bundle.min.js">
-            //colm-xl-4 col-md-6
-            //colm-xl-8 col-md-6
         </script>
     </body>
 
