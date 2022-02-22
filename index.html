@@ -17,11 +17,9 @@
             .banner {
                 background-color: rgb(68, 50, 48);
                 width: 100%; 
-                height: 30%; 
+                height: 21%; 
                 position: absolute;
                 top: 79%;
-
-
             }
 
             .desk {
@@ -40,26 +38,31 @@
                 background-color: transparent;
                 border-color: #d08c54;
                 border-radius: 12px;
-                transition: ease-in 200ms;
+                transition: ease-in 400ms;
             }
 
-            #header:hover {
-                font-size: xx-large;
-                transition: ease-in 1s;
+            .cover {
+                animation: fadebackground 8s;
+                z-index: 5;
             }
+
+            @keyframes fadebackground {
+                from {background-color: #000000;}
+                to {background: rgb(14, 21, 40);}
+            }
+
+
 
         </style>
     </head>
 
-    <body class="blueBG">
+    <body class="blueBG cover">
         <div class="container-fluid">
-
             <div id="header" class="text-center">
                 <h1 class="display-1 fw-bold text-white pt-5 title-font"> Lisa  </h1>
                 <div> <h class="display-2 fw-bold text-white title-font"> Gilmore-Montero </h> </div>
             </div>
 
-            <div class="container">
             <div id="button" class="d-flex justify-content-center mt-5">
                 <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='code.html'"> Code </button>
                 <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='csart.html'"> CS & Art </button>
@@ -67,15 +70,15 @@
                 <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='about.html'"> About </button>
                 <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='contact.html'"> Contact Me </button>
             </div>
-        </div>
             
-            <div class="d-flex justify-content-center m-4 position: relative;">
+            <div class="d-flex justify-content-center mt-4">
                 <img src = "assets/BannerSVGr.svg" class="mt-5 desk" width="600" height="300">
                 <div class="banner "></div>
             </div>
         
             
         </div>
+        <!--
         <div class="container-fluid brownBG">
             <hr style="color: white; height: 2px; width: 100%; z-index: 1;">
             <div class="row">
@@ -86,7 +89,8 @@
                     <p class="text-white align-self-center text-font" style="text-align: center; width:75%"> Hello! My name is Lisa. I am currently a Computer Science student at the University of New Orleans. I am also minoring in studio art with a focus on digital art. My hope is to combine my two interests together, computer science and digital art, throughout my career. </p>
                 </div>
             </div>
-         </div>      
+         </div> 
+         -->     
         <script src="scripts/bootstrap.bundle.min.js"></script>
     </body>
 
