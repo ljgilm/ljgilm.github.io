@@ -51,29 +51,50 @@
                 to {background: rgb(14, 21, 40);}
             }
 
-
+            .parent {
+                position: relative;
+                top: 0;
+                left: 0;
+                bottom: 0;
+            }
+            .image1 {
+                position: relative;
+                border: 1px solid #000000;
+                bottom: 0;
+            }
+            .image2 {
+                position: absolute;
+                border: 1px solid #000000;
+                background-color: rgb(68, 50, 48);
+                width: 100%; 
+                height: 40%; 
+                bottom: 0;
+            }
 
         </style>
     </head>
 
-    <body class="blueBG cover">
-        <div class="container-fluid">
-            <div id="header" class="text-center">
+    <body class="bg">
+        <div class="container-fluid" >
+            <div id="header" class="text-center" >
                 <h1 class="display-1 fw-bold text-white pt-5 title-font"> Lisa  </h1>
                 <div> <h class="display-2 fw-bold text-white title-font"> Gilmore-Montero </h> </div>
             </div>
 
-            <div id="button" class="d-flex justify-content-center mt-5">
-                <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='code.html'"> Code </button>
-                <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='csart.html'"> CS & Art </button>
-                <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='art.html'"> Artwork </button>
-                <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='about.html'"> About </button>
-                <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='contact.html'"> Contact Me </button>
+            <div class="row">
+                <div id="button" class="mt-5 ">
+                    <div class="col-sm-12 d-flex justify-content-center">
+                        <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='code.html'"> Code </button>
+                        <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='csart.html'"> CS & Art </button>
+                        <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='art.html'"> Artwork </button>
+                        <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='about.html'"> About </button>
+                        <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='contact.html'"> Contact Me </button>
+                    </div> 
+                </div>
             </div>
             
-            <div class="d-flex justify-content-center mt-4">
-                <img src = "assets/BannerSVGr.svg" class="mt-5 desk" width="600" height="300">
-                <div class="banner "></div>
+            <div class="d-flex justify-content-center mt-4 parent">
+                <img src = "assets/BannerSVGr.svg" class="mt-5 desk image1" width="600" height="300">
             </div>
         
             
