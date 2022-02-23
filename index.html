@@ -42,13 +42,60 @@
             }
 
             .cover {
-                animation: fadebackground 8s;
+                
+                animation: fadebackground 10s;
                 z-index: 5;
             }
 
             @keyframes fadebackground {
                 from {background-color: #000000;}
-                to {background: rgb(14, 21, 40);}
+                to {background: transparent;}
+            }
+
+            .light {
+                animation: fadeInAnimation ease 4s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+            
+            @keyframes fadeInAnimation {
+                0% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+
+            .desk-appear {
+                animation: fadeInDesk ease 500ms;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+            
+            @keyframes fadeInDesk {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+
+            
+            .text-appear {
+                animation: fadeInText ease 4s;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+            
+            @keyframes fadeInText {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
             }
 
             .parent {
@@ -59,7 +106,6 @@
             }
             .image1 {
                 position: relative;
-                border: 1px solid #000000;
                 bottom: 0;
             }
             .image2 {
@@ -73,15 +119,18 @@
 
         </style>
     </head>
-
+<!--    
+    <div class="light" style="position: absolute; width: 100%; height: 100%; background-color: #000000;"></div>
+    <div class="cover" style="position: absolute; width: 100%; height: 100%;"></div>  background: linear-gradient(180deg, rgb(14, 21, 40) 80%, rgb(68, 50, 48) 10%);-->
     <body class="bg">
+        <div class="light" style="position: absolute; z-index: -5; width: 100%; height: 100%; background-color: #000000;"></div> 
         <div class="container-fluid" >
             <div id="header" class="text-center" >
-                <h1 class="display-1 fw-bold text-white pt-5 title-font"> Lisa  </h1>
-                <div> <h class="display-2 fw-bold text-white title-font"> Gilmore-Montero </h> </div>
+                <h1 class="display-1 fw-bold text-white pt-5 title-font text-appear"> Lisa  </h1>
+                <div> <h class="display-2 fw-bold text-white title-font text-appear"> Gilmore-Montero </h> </div>
             </div>
 
-            <div class="row">
+            <div class="row text-appear">
                 <div id="button" class="mt-5 ">
                     <div class="col-sm-12 d-flex justify-content-center">
                         <button type="button" class="button btn btn-outline-light mx-2" onclick="document.location='code.html'"> Code </button>
@@ -94,11 +143,13 @@
             </div>
             
             <div class="d-flex justify-content-center mt-4 parent">
-                <img src = "assets/BannerSVGr.svg" class="mt-5 desk image1" width="600" height="300">
+                <img src = "assets/BannerSVGr.svg" class="mt-5 desk image1 desk-appear" width="600" height="300">
             </div>
-        
-            
         </div>
+        
+      
+        
+        
         <!--
         <div class="container-fluid brownBG">
             <hr style="color: white; height: 2px; width: 100%; z-index: 1;">
@@ -112,7 +163,12 @@
             </div>
          </div> 
          -->     
-        <script src="scripts/bootstrap.bundle.min.js"></script>
+        <script src="scripts/bootstrap.bundle.min.js">
+            setTimeout(function(){
+                $('#black').remove();
+            }, 8000);
+
+        </script>
     </body>
 
 </html>
