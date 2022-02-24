@@ -1,0 +1,17 @@
+
+Product Type: Earbuds
+
+Name: Air pods
+	 Brand: Apple
+	 Price: 423.0
+	 Stars: 3.9
+	 Number of Reviews: 23454532
+	 Features:
+		Feature: Transparency
+			true
+		Feature: Noise Cancellation
+			true
+		Feature: Battery Life
+			4.5
+	 URL: www.apple.com
+	 Notes: expensive
