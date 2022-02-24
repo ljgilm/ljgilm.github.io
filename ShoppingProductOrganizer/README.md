@@ -12,7 +12,7 @@
 
 ### How to Start Program:
 1. javac *.java
-2. java fileName.java - depends if you want to create your own ProductList or not
+2. java fileName - depends if you want to create your own ProductList or not
    - if you want to create your own ProductList use: UserInputOnlyFinal.java
    - if you want to just test the FilterBy and SortBy files use: UserInputFinalWithTester.java
 3. If UserInputOnlyFinal was choosen, will be prompted to create a ProductList. Afterwards, for both UserInputOnlyFinal and UserInputFinalWithTester, will be asked if you want to apply filterBy and sortBy to your ProductList
