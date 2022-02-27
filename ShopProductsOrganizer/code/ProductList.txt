@@ -1,17 +1,129 @@
 
-Product Type: Earbuds
+Product Type: Wireless Earbuds
 
-Name: Air pods
-	 Brand: Apple
-	 Price: 423.0
-	 Stars: 3.9
-	 Number of Reviews: 23454532
+Name: T5 True
+	 Brand: Klipsch
+	 Price: 69.9
+	 Stars: 3.5
+	 Number of Reviews: 2783
 	 Features:
+		Feature: Siri
+			true
+		Feature: Battery
+			8.0
 		Feature: Transparency
 			true
-		Feature: Noise Cancellation
+		Feature: Wireless Range(ft)
+			33.0
+		Feature: Noise Cancelling
 			true
-		Feature: Battery Life
-			4.5
-	 URL: www.apple.com
-	 Notes: expensive
+	 URL: https://www.amazon.com/Klipsch-T5-True-Wireless-Headphones/dp/B07QXLQT34
+	 Notes: none
+Name: WF-1000xM3 True
+	 Brand: Sony
+	 Price: 178.0
+	 Stars: 4.0
+	 Number of Reviews: 9468
+	 Features:
+		Feature: Siri
+			true
+		Feature: Battery
+			6.0
+		Feature: Transparency
+			true
+		Feature: Wireless Range(ft)
+			30.0
+		Feature: Noise Cancelling
+			true
+	 URL: https://www.amazon.com/Sony-WF-1000XM3-Industry-Canceling-Wireless/dp/B07T81554H
+	 Notes: none
+Name: Soundcore Liberty Air
+	 Brand: Anker
+	 Price: 99.0
+	 Stars: 4.5
+	 Number of Reviews: 990
+	 Features:
+		Feature: Siri
+			false
+		Feature: Battery
+			5.0
+		Feature: Transparency
+			true
+		Feature: Wireless Range(ft)
+			30.0
+		Feature: Noise Cancelling
+			true
+	 URL: https://www.amazon.com/Soundcore-Cancelling-Technology-Personalized-Bluetooth/dp/B08G4K8CY8
+	 Notes: none
+Name: Galaxy Buds
+	 Brand: Samsung
+	 Price: 179.0
+	 Stars: 4.5
+	 Number of Reviews: 3733
+	 Features:
+		Feature: Siri
+			false
+		Feature: Battery
+			8.0
+		Feature: Transparency
+			true
+		Feature: Wireless Range(ft)
+			35.0
+		Feature: Noise Cancelling
+			true
+	 URL: https://www.amazon.com/Bluetooth-Wireless-Cancelling-Charging-Resistant/dp/B08MWZHHKP
+	 Notes: none
+Name: Elite 85t
+	 Brand: Jabra
+	 Price: 180.0
+	 Stars: 4.6
+	 Number of Reviews: 1548
+	 Features:
+		Feature: Siri
+			false
+		Feature: Battery
+			8.0
+		Feature: Transparency
+			true
+		Feature: Wireless Range(ft)
+			33.0
+		Feature: Noise Cancelling
+			false
+	 URL: https://www.amazon.com/Jabra-Wireless-Bluetooth-Earbuds-Titanium/dp/B08HR78C46
+	 Notes: There are fewer reviews because they are new.
+Name: PowerBeats Pro
+	 Brand: Beats
+	 Price: 199.0
+	 Stars: 4.8
+	 Number of Reviews: 51988
+	 Features:
+		Feature: Siri
+			true
+		Feature: Battery
+			9.0
+		Feature: Transparency
+			true
+		Feature: Wireless Range(ft)
+			33.0
+		Feature: Noise Cancelling
+			false
+	 URL: https://www.amazon.com/Powerbeats-Pro-Totally-Wireless-Earphones/dp/B07R5QD598
+	 Notes: none
+Name: AirPods Pro
+	 Brand: Apple
+	 Price: 200.0
+	 Stars: 5.0
+	 Number of Reviews: 185271
+	 Features:
+		Feature: Siri
+			true
+		Feature: Battery
+			5.0
+		Feature: Transparency
+			true
+		Feature: Wireless Range(ft)
+			40.0
+		Feature: Noise Cancelling
+			true
+	 URL: https://www.amazon.com/Apple-MWP22AM-A-AirPods-Pro/dp/B07ZPC9QD4
+	 Notes: none
