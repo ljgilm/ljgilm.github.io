@@ -37,60 +37,6 @@ Name: WF-1000xM3 True
 			true
 	 URL: https://www.amazon.com/Sony-WF-1000XM3-Industry-Canceling-Wireless/dp/B07T81554H
 	 Notes: none
-Name: Soundcore Liberty Air
-	 Brand: Anker
-	 Price: 99.0
-	 Stars: 4.5
-	 Number of Reviews: 990
-	 Features:
-		Feature: Siri
-			false
-		Feature: Battery
-			5.0
-		Feature: Transparency
-			true
-		Feature: Wireless Range(ft)
-			30.0
-		Feature: Noise Cancelling
-			true
-	 URL: https://www.amazon.com/Soundcore-Cancelling-Technology-Personalized-Bluetooth/dp/B08G4K8CY8
-	 Notes: none
-Name: Galaxy Buds
-	 Brand: Samsung
-	 Price: 179.0
-	 Stars: 4.5
-	 Number of Reviews: 3733
-	 Features:
-		Feature: Siri
-			false
-		Feature: Battery
-			8.0
-		Feature: Transparency
-			true
-		Feature: Wireless Range(ft)
-			35.0
-		Feature: Noise Cancelling
-			true
-	 URL: https://www.amazon.com/Bluetooth-Wireless-Cancelling-Charging-Resistant/dp/B08MWZHHKP
-	 Notes: none
-Name: Elite 85t
-	 Brand: Jabra
-	 Price: 180.0
-	 Stars: 4.6
-	 Number of Reviews: 1548
-	 Features:
-		Feature: Siri
-			false
-		Feature: Battery
-			8.0
-		Feature: Transparency
-			true
-		Feature: Wireless Range(ft)
-			33.0
-		Feature: Noise Cancelling
-			false
-	 URL: https://www.amazon.com/Jabra-Wireless-Bluetooth-Earbuds-Titanium/dp/B08HR78C46
-	 Notes: There are fewer reviews because they are new.
 Name: PowerBeats Pro
 	 Brand: Beats
 	 Price: 199.0
