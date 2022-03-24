@@ -1,0 +1,298 @@
+<html>
+
+<head>
+    <link rel="icon" href="assets/favicon.png">
+    <title>Lisa</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet">
+
+    <style>
+        .canvas {
+            animation: fadebackground 25s;
+            z-index: 5;
+        }
+
+        @keyframes fadebackground {
+            from {
+                background-color: white;
+            }
+
+            to {
+                background: #000000;
+            }
+        }
+
+        .canvasBlack {
+            animation: fadebackgroundB 5s;
+            z-index: 5;
+        }
+
+        @keyframes fadebackgroundB {
+            from {
+                background-color: rgb(0, 0, 0);
+            }
+
+            to {
+                background: #000000;
+            }
+        }
+
+        .font {
+            font-family: 'Finger Paint', cursive;
+            font-size: 450%;
+            color: #5e4a4a;
+            text-align: center;
+        }
+
+        .font1 {
+            font-family: 'Finger Paint', cursive;
+            font-size: 300%;
+            color: #5e4a4a;
+            text-align: center;
+        }
+
+        .font2 {
+            font-family: 'Finger Paint', cursive;
+            font-size: 250%;
+            color: #5e4a4a;
+            text-align: center;
+        }
+
+        .font3 {
+            font-family: 'Finger Paint', cursive;
+            font-size: 150%;
+            color: #5e4a4a;
+            text-align: center;
+        }
+
+        .font4 {
+            font-family: 'Finger Paint', cursive;
+            font-size: 150%;
+            font-weight: bolder;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .font5 {
+            font-family: 'Finger Paint', cursive;
+            font-size: 350%;
+            color: #ffffff;
+            text-align: center;
+        }
+        .font:hover {
+            color: #ffffff;
+            transition: 0.2s;
+        }
+
+        .font3:hover {
+            color: #ffffff;
+            transition: 0.2s;
+        }
+
+        .font6 {
+            font-family: 'Finger Paint', cursive;
+            font-size: 100%;
+            color: #5e4a4a;
+            text-align: center;
+        }
+
+    </style>
+    <!--
+                #drawingcanvas {
+        width: 50%;
+        }
+
+    -->
+
+</head>
+
+<body class="container" style="background-color: rgb(24, 22, 22); display:block;">
+    <div id="startDiv" class="row d-flex justify-content-center m-5 mt-4 mb-4" style="display:block;">
+        <div id="titleStart" class="font1">
+            See No Evil!
+        </div>
+        <div class="row d-flex justify-content-center m-1 mb-3 mt-3">
+            <img id="monkey" src="assets/monkeyLg.png"
+                style="display:block; max-width: 400; height: auto; width: auto;">
+        </div>
+
+        <p class="font6">See No Evil is like pictionary. However, not only will you be timed, but as the time goes by your canvas will fade to black so draw quickly! Maybe keep track of what you are drawing too cause you might need to draw in the dark!</p>
+
+        <input type="button" id="startBut"
+            style="display:block; background-color: transparent; border-color: transparent;" value="START" class="font">
+    </div>
+
+    <div id="game" style="display:none">
+        <div class="font1 row d-flex justify-content-center">
+            See No Evil!
+        </div>
+
+        <input type="button" id="nextTurnBut"
+                style="display:none; background-color: transparent; border-color: transparent;" value="Next Turn"
+                class="font3">
+
+        <span class="font5" id="timer">
+        </span>
+
+        <p align = "center">
+            <canvas id="drawingcanvas" width="510" height="510" class="img-responsive"
+                style="border: 1px solid black; background-color: white; justify-content: center;"></canvas>
+        </p>
+
+        <span class="column d-flex justify-content-center">
+    
+            <span id="options">
+                <!-- Button trigger modal -->
+    
+                <input type="button" id="easyBut" data-bs-toggle="modal" data-bs-target="#easyButMod"
+                    style="display:inline; background-color: transparent; border-color: transparent;" value=" Easy "
+                    class="font3">
+    
+                <input type="button" id="mediumBut" data-bs-toggle="modal" data-bs-target="#mediumButMod"
+                    style="display:inline; background-color: transparent; border-color: transparent;" value=" Medium "
+                    class="font3">
+    
+                <input type="button" id="hardBut" data-bs-toggle="modal" data-bs-target="#hardButMod"
+                    style="display:inline; background-color: transparent; border-color: transparent;" value=" Hard "
+                    class="font3">
+    
+                <input type="button" id="moviesBut" data-bs-toggle="modal" data-bs-target="#moviesButMod"
+                    style="display: inline; background-color: transparent; border-color: transparent;" value=" Movies "
+                    class="font3">
+    
+            </span>
+
+            <!--
+            <span>
+                Drawing:
+                <span id="whatAmIDrawing"> </span>
+            </span>
+            -->
+
+        </span>
+
+        <!-- Modal -->
+        <div class="modal fade" id="easyButMod" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered font4">
+                <div class="modal-content" style="background-color: #5e4a4a">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Pick One Easy Option</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="easyButModBody" class="modal-body">
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="easy0">
+                            </div>
+                        </button>
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="easy1">
+                            </div>
+                        </button>
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="easy2">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="mediumButMod" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered font4">
+                <div class="modal-content" style="background-color: #5e4a4a">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Pick One Medium Option</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="mediumButModBody" class="modal-body">
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="medium0">
+                            </div>
+                        </button>
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="medium1">
+                            </div>
+                        </button>
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="medium2">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="hardButMod" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered font4">
+                <div class="modal-content" style="background-color: #5e4a4a">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Pick One Hard Option</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="hardButModBody" class="modal-body">
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="hard0">
+                            </div>
+                        </button>
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="hard1">
+                            </div>
+                        </button>
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="hard2">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="moviesButMod" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered font4">
+                <div class="modal-content" style="background-color: #5e4a4a">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Pick One Movie Option</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="moviesButModBody" class="modal-body">
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="movies0">
+                            </div>
+                        </button>
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="movies1">
+                            </div>
+                        </button>
+                        <button type="button" class="btn mb-2" data-bs-dismiss="modal" style="background-color: #d3b094">
+                            <div id="movies2">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="bottom"></div>
+
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+    <script src="scripts/model.js"></script>
+    <script src="scripts/view.js"></script>
+    <script src="scripts/controller.js"></script> 
+</body>
+
+</html>

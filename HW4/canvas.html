@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="icon" href="assets/favicon.png">
+        <title>Lisa</title>
+    
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="styles/bootstrap.min.css">
+        <link rel="stylesheet" href="styles/bootstrap-icons.css">
+        <style>
+            .canvas {
+                animation: fadebackground 30s;
+                z-index: 5;
+            }
+    
+            @keyframes fadebackground {
+                from {
+                    background-color: white;
+                }
+    
+                to {
+                    background: #000000;
+                }
+            }
+        </style>
+    </head>
+    <body class="container" style="background-color: rgb(255, 174, 98);">
+        Canvas View
+        <div>
+            <canvas id="canvas" width="400" height="400" style="border: 1px solid black; background-color: white;"></canvas> 
+            <!-- <img id="copycanvas" width="400" height="400" style="border: 1px solid black; background-color: white;">-->
+        </div>
+        <script src="scripts/model.js"></script>
+        <script src="scripts/view.js"></script>
+        <script src="scripts/controller.js"></script>
+    </body>
+</html>

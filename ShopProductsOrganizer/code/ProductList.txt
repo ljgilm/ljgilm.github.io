@@ -1,24 +1,6 @@
 
 Product Type: Wireless Earbuds
 
-Name: T5 True
-	 Brand: Klipsch
-	 Price: 69.9
-	 Stars: 3.5
-	 Number of Reviews: 2783
-	 Features:
-		Feature: Siri
-			true
-		Feature: Battery
-			8.0
-		Feature: Transparency
-			true
-		Feature: Wireless Range(ft)
-			33.0
-		Feature: Noise Cancelling
-			true
-	 URL: https://www.amazon.com/Klipsch-T5-True-Wireless-Headphones/dp/B07QXLQT34
-	 Notes: none
 Name: WF-1000xM3 True
 	 Brand: Sony
 	 Price: 178.0
